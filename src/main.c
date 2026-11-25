@@ -90,5 +90,10 @@ int main() {
   Node node = {.data = "Tarkan – Şımarık 💋", .next = nullptr};
   insert_at(&playlist, 3, &node);
 
+  move_down(playlist, 0);
+  move_up(playlist, 3);
+
+  move_to_top(playlist, 4);
+
   save_file(PLAYLIST_OUT_PATH, playlist);
 }

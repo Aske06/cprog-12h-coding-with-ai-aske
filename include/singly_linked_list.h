@@ -42,3 +42,9 @@ void *delete_at(Node **head, size_t n);
  * @note Can return `nullptr` if the list is empty.
  */
 Node *tail(Node *head);
+
+bool move_up(Node *startNode, size_t n);
+
+bool move_down(Node *startNode, size_t n);
+
+bool move_to_top(Node *startNode, size_t n);

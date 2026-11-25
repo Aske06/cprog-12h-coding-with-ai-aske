@@ -92,3 +92,37 @@ Node *tail(Node *head) {
   }
   return current;
 }
+
+// Swaps the songs in a specified node and the node after it
+bool move_down(Node *startNode, size_t n) {
+  Node *currentNode = node_at(startNode, n);
+
+  if (!currentNode || !currentNode->next)
+    return false; // Error handling
+
+  // Switch songs
+  void *tempData = currentNode->data;
+  currentNode->data = currentNode->next->data;
+  currentNode->next->data = tempData;
+
+  return true;
+}
+
+// Swaps the songs in a specified node and the node before it
+bool move_up(Node *startNode, size_t n) {
+  if (n == 0) {
+    return false; // Song is at the top of the list
+  }
+  return move_down(startNode, n - 1); // Reuse move_down() function
+}
+
+// Moves a song to the top of the playlist
+bool move_to_top(Node *startNode, size_t n) {
+  if (n == 0)
+    return false; // Song is at the top of the list
+  // Move song up one step until at the top
+  while (move_up(startNode, n)) {
+    n--;
+  }
+  return true;
+}
