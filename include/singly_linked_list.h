@@ -46,3 +46,5 @@ Node *tail(Node *head);
 bool move_up(Node *startNode, size_t n);
 
 bool move_down(Node *startNode, size_t n);
+
+bool move_to_top(Node *startNode, size_t n);
